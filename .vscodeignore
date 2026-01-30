@@ -7,10 +7,14 @@ tsconfig.json
 **/*.ts
 **/*.map
 .git/**
-node_modules/**
 *.vsix
 build.sh
 PROJECT_SUMMARY.md
 CHECKLIST.md
 TESTING_GUIDE.md
 QUICKSTART.md
+node_modules/**/.bin
+node_modules/**/test
+node_modules/**/tests
+node_modules/**/*.md
+node_modules/**/*.map

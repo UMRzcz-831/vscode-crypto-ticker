@@ -19,7 +19,10 @@
     "Other"
   ],
   "activationEvents": [
-    "onStartupFinished"
+    "onStartupFinished",
+    "onCommand:crypto-ticker.refresh",
+    "onCommand:crypto-ticker.toggle",
+    "onCommand:crypto-ticker.configure"
   ],
   "main": "./out/extension.js",
   "contributes": {
