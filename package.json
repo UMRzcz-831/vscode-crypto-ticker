@@ -1,0 +1,96 @@
+{
+  "name": "crypto-ticker",
+  "displayName": "Crypto Ticker",
+  "description": "Real-time cryptocurrency price ticker for SOL, BTC, and ETH",
+  "version": "0.1.0",
+  "publisher": "your-publisher-name",
+  "icon": "images/icon.png",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "crypto-ticker.refresh",
+        "title": "Crypto Ticker: Refresh Prices"
+      },
+      {
+        "command": "crypto-ticker.toggle",
+        "title": "Crypto Ticker: Toggle Display"
+      },
+      {
+        "command": "crypto-ticker.configure",
+        "title": "Crypto Ticker: Configure Settings"
+      }
+    ],
+    "configuration": {
+      "title": "Crypto Ticker",
+      "properties": {
+        "cryptoTicker.refreshInterval": {
+          "type": "number",
+          "default": 30,
+          "description": "Price refresh interval in seconds",
+          "minimum": 10
+        },
+        "cryptoTicker.displayFormat": {
+          "type": "string",
+          "default": "compact",
+          "enum": [
+            "compact",
+            "detailed"
+          ],
+          "description": "Display format for prices"
+        },
+        "cryptoTicker.enabledCoins": {
+          "type": "array",
+          "default": [
+            "BTC",
+            "ETH",
+            "SOL"
+          ],
+          "items": {
+            "type": "string",
+            "enum": [
+              "BTC",
+              "ETH",
+              "SOL"
+            ]
+          },
+          "description": "Coins to display"
+        },
+        "cryptoTicker.showChangePercentage": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show 24h price change percentage"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile",
+    "lint": "eslint src --ext ts",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "@types/vscode": "^1.75.0",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "eslint": "^8.0.0",
+    "typescript": "^5.0.0",
+    "@vscode/vsce": "^2.19.0"
+  },
+  "dependencies": {
+    "axios": "^1.6.0"
+  }
+}
